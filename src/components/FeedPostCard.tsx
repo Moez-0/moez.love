@@ -62,7 +62,7 @@ const FeedPostCard: React.FC<FeedPostCardProps> = ({ post, onClickImage }) => {
           <img
             src={post.image}
             alt={post.title || 'Moment'}
-            className="w-full h-auto grayscale hover:grayscale-0 transition-all duration-500"
+            className="w-full h-auto hover:grayscale-0 transition-all duration-500"
             referrerPolicy="no-referrer"
           />
         </div>
