@@ -89,7 +89,7 @@ export default function Home() {
     Momo's Archive
   </p>
   <p className="text-sm text-gray-400 max-w-md">
-    A personal archive of my favorite articles, videos, music, thoughts, and moments —
+    A personal archive of my favorite articles, videos, music, thoughts, and moments
     a space where everything I find meaningful is collected and remembered.
   </p>
 </header>
