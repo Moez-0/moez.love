@@ -61,7 +61,7 @@ function AnimatedRoutes() {
           }
         />
         <Route
-          path="/admin"
+          path="/moez/admin/dashboard"
           element={
             <PageWrapper>
               <Admin />
