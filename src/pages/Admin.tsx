@@ -401,7 +401,7 @@ export default function Admin() {
                         value={editingPost?.projectThumbnail || ''}
                         onChange={(e) => setEditingPost({ ...editingPost, projectThumbnail: e.target.value })}
                         className="w-full bg-bg border border-border p-3 font-mono text-xs outline-none focus:border-accent"
-                        placeholder="Leave blank for auto-screenshot"
+                        placeholder="Leave blank for live site preview"
                       />
                     </div>
                   </div>

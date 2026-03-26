@@ -20,20 +20,30 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
         className="group bg-surface border border-border overflow-hidden hover:border-accent transition-all duration-300"
       >
         <div className="aspect-video overflow-hidden bg-bg relative">
-          {project.projectThumbnail || project.projectUrl ? (
+          {project.projectThumbnail ? (
             <img
-              src={project.projectThumbnail || `https://s.wordpress.com/mshots/v1/${encodeURIComponent(project.projectUrl || '')}?w=800`}
+              src={project.projectThumbnail}
               alt={project.title}
               className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 group-hover:scale-105"
               referrerPolicy="no-referrer"
             />
+          ) : project.projectUrl ? (
+            <div className="w-full h-full relative group-hover:grayscale-0 grayscale transition-all duration-500">
+              <iframe
+                src={project.projectUrl}
+                className="w-[200%] h-[200%] border-none origin-top-left scale-50 pointer-events-none"
+                title={project.title}
+                sandbox="allow-scripts allow-same-origin"
+              />
+              <div className="absolute inset-0 z-10" /> {/* Overlay to prevent interaction */}
+            </div>
           ) : (
             <div className="w-full h-full flex items-center justify-center font-mono text-[10px] text-text-secondary uppercase tracking-widest">
               No Preview Available
             </div>
           )}
           
-          <div className="absolute inset-0 bg-accent/10 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-4">
+          <div className="absolute inset-0 bg-accent/10 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-4 z-20">
             {project.projectUrl && (
               <button
                 onClick={() => setIsPreviewOpen(true)}
