@@ -395,13 +395,13 @@ export default function Admin() {
                       />
                     </div>
                     <div className="space-y-2">
-                      <label className="text-[10px] font-mono uppercase text-text-secondary">Project Thumbnail URL</label>
+                      <label className="text-[10px] font-mono uppercase text-text-secondary">Project Thumbnail URL (Optional)</label>
                       <input
                         type="text"
                         value={editingPost?.projectThumbnail || ''}
                         onChange={(e) => setEditingPost({ ...editingPost, projectThumbnail: e.target.value })}
                         className="w-full bg-bg border border-border p-3 font-mono text-xs outline-none focus:border-accent"
-                        placeholder="https://..."
+                        placeholder="Leave blank for auto-screenshot"
                       />
                     </div>
                   </div>
