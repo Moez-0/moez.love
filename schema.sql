@@ -1,7 +1,7 @@
 -- Create the posts table
 CREATE TABLE posts (
   id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
-  type TEXT NOT NULL CHECK (type IN ('thought', 'quote', 'music', 'moment', 'video', 'article')),
+  type TEXT NOT NULL CHECK (type IN ('thought', 'quote', 'music', 'moment', 'project', 'article', 'video')),
   title TEXT,
   content TEXT NOT NULL,
   author TEXT,
@@ -9,6 +9,8 @@ CREATE TABLE posts (
   spotify_id TEXT,
   artist TEXT,
   video_id TEXT,
+  project_url TEXT,
+  project_thumbnail TEXT,
   url TEXT,
   created_at TIMESTAMPTZ DEFAULT NOW()
 );

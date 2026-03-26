@@ -1,6 +1,6 @@
 export interface Post {
   id: string;
-  type: 'thought' | 'quote' | 'music' | 'moment' | 'video' | 'article';
+  type: 'thought' | 'quote' | 'music' | 'moment' | 'project' | 'article' | 'video';
   title?: string;
   content: string;
   author?: string;
@@ -8,5 +8,7 @@ export interface Post {
   spotifyId?: string;
   artist?: string;
   videoId?: string;
+  projectUrl?: string;
+  projectThumbnail?: string;
   url?: string;
 }

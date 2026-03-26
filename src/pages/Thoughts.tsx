@@ -14,7 +14,7 @@ export default function Thoughts() {
         const { data, error } = await supabase
           .from('posts')
           .select('*')
-          .in('type', ['thought', 'video', 'article'])
+          .in('type', ['thought', 'article', 'quote', 'video'])
           .order('created_at', { ascending: false });
 
         if (error) throw error;
@@ -24,6 +24,7 @@ export default function Thoughts() {
             type: p.type,
             title: p.title,
             content: p.content,
+            author: p.author,
             videoId: p.video_id,
             url: p.url
           })));

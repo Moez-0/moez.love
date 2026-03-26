@@ -9,9 +9,9 @@ import { AnimatePresence, motion } from 'motion/react';
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import Thoughts from './pages/Thoughts';
-import Quotes from './pages/Quotes';
 import Music from './pages/Music';
 import Moments from './pages/Moments';
+import Projects from './pages/Projects';
 import Admin from './pages/Admin';
 
 function AnimatedRoutes() {
@@ -37,14 +37,6 @@ function AnimatedRoutes() {
           }
         />
         <Route
-          path="/quotes"
-          element={
-            <PageWrapper>
-              <Quotes />
-            </PageWrapper>
-          }
-        />
-        <Route
           path="/music"
           element={
             <PageWrapper>
@@ -61,7 +53,16 @@ function AnimatedRoutes() {
           }
         />
         <Route
-          path="/moez/admin/dashboard"
+          
+          path="/projects"
+          element={
+            <PageWrapper>
+              <Projects />
+            </PageWrapper>
+          }
+        />
+        <Route
+          path="/admin"
           element={
             <PageWrapper>
               <Admin />

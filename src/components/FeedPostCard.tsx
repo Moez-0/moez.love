@@ -9,14 +9,15 @@ interface FeedPostCardProps {
 }
 
 const FeedPostCard: React.FC<FeedPostCardProps> = ({ post, onClickImage }) => {
-  const Icon = {
+  const icons = {
     thought: PenTool,
     quote: Quote,
     music: Music,
     moment: Camera,
-    video: Youtube,
     article: BookOpen,
-  }[post.type];
+    video: Youtube,
+  };
+  const Icon = icons[post.type as keyof typeof icons] || PenTool;
 
   return (
     <motion.div
@@ -84,6 +85,7 @@ const FeedPostCard: React.FC<FeedPostCardProps> = ({ post, onClickImage }) => {
           ></iframe>
         </div>
       )}
+
 
       {post.type === 'video' && post.videoId && (
         <div className="mt-4 aspect-video overflow-hidden border border-border">

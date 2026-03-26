@@ -1,12 +1,12 @@
 import { NavLink } from 'react-router-dom';
-import { Home, Quote, Music, Camera, PenTool } from 'lucide-react';
+import { Home, Quote, Music, Camera, PenTool, Folder } from 'lucide-react';
 
 const navItems = [
   { path: '/', icon: Home, label: 'Home' },
   { path: '/thoughts', icon: PenTool, label: 'Thoughts' },
-  { path: '/quotes', icon: Quote, label: 'Quotes' },
   { path: '/music', icon: Music, label: 'Music' },
   { path: '/moments', icon: Camera, label: 'Moments' },
+  { path: '/projects', icon: Folder, label: 'Projects' },
 ];
 
 export default function Navbar() {

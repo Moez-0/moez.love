@@ -19,6 +19,7 @@ export default function Home() {
       const { data, error } = await supabase
         .from('posts')
         .select('*')
+        .in('type', ['thought', 'quote', 'music', 'moment', 'article', 'video'])
         .order('created_at', { ascending: false })
         .range(pageNumber * PAGE_SIZE, (pageNumber + 1) * PAGE_SIZE - 1);
 
@@ -36,6 +37,8 @@ export default function Home() {
           spotifyId: p.spotify_id,
           artist: p.artist,
           videoId: p.video_id,
+          projectUrl: p.project_url,
+          projectThumbnail: p.project_thumbnail,
           url: p.url
         }));
 

@@ -63,6 +63,8 @@ export default function Admin() {
           spotifyId: p.spotify_id,
           artist: p.artist,
           videoId: p.video_id,
+          projectUrl: p.project_url,
+          projectThumbnail: p.project_thumbnail,
           url: p.url
         })));
       }
@@ -129,6 +131,8 @@ export default function Admin() {
       spotify_id: editingPost.spotifyId,
       artist: editingPost.artist,
       video_id: editingPost.videoId,
+      project_url: editingPost.projectUrl,
+      project_thumbnail: editingPost.projectThumbnail,
       url: editingPost.url
     };
 
@@ -301,8 +305,9 @@ export default function Admin() {
                       <option value="quote">Quote</option>
                       <option value="music">Music</option>
                       <option value="moment">Moment</option>
-                      <option value="video">Video</option>
+                      <option value="project">Project</option>
                       <option value="article">Article</option>
+                      <option value="video">Video</option>
                     </select>
                   </div>
                   <div className="space-y-2">
@@ -374,6 +379,31 @@ export default function Admin() {
                       className="w-full bg-bg border border-border p-3 font-mono text-xs outline-none focus:border-accent"
                       placeholder="e.g. dQw4w9WgXcQ"
                     />
+                  </div>
+                )}
+
+                {editingPost?.type === 'project' && (
+                  <div className="space-y-4">
+                    <div className="space-y-2">
+                      <label className="text-[10px] font-mono uppercase text-text-secondary">Project URL</label>
+                      <input
+                        type="url"
+                        value={editingPost?.projectUrl || ''}
+                        onChange={(e) => setEditingPost({ ...editingPost, projectUrl: e.target.value })}
+                        className="w-full bg-bg border border-border p-3 font-mono text-xs outline-none focus:border-accent"
+                        placeholder="https://..."
+                      />
+                    </div>
+                    <div className="space-y-2">
+                      <label className="text-[10px] font-mono uppercase text-text-secondary">Project Thumbnail URL</label>
+                      <input
+                        type="text"
+                        value={editingPost?.projectThumbnail || ''}
+                        onChange={(e) => setEditingPost({ ...editingPost, projectThumbnail: e.target.value })}
+                        className="w-full bg-bg border border-border p-3 font-mono text-xs outline-none focus:border-accent"
+                        placeholder="https://..."
+                      />
+                    </div>
                   </div>
                 )}
 
