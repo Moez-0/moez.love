@@ -85,7 +85,7 @@ export default function Home() {
   return (
     <div className="max-w-2xl mx-auto py-12 px-4">
       <header className="mb-12 pixel-panel p-6 bg-surface">
-        <h1 className="mb-2 text-5xl font-bold leading-none">MOEZ.LOVE</h1>
+       
         <p className="mb-3 text-xs font-mono uppercase tracking-[0.2em] text-text-secondary">
           Moez Souidi's Portal
         </p>
