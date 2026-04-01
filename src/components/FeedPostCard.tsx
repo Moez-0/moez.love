@@ -23,47 +23,47 @@ const FeedPostCard: React.FC<FeedPostCardProps> = ({ post, onClickImage }) => {
     <motion.div
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
-      className="group relative bg-surface border border-border p-6 mb-6 hover:border-text-secondary transition-colors duration-300"
+      className="pixel-panel group relative mb-6 bg-surface p-6 transition-all duration-300 hover:-translate-y-0.5"
     >
       <div className="flex items-center justify-between mb-4">
         <div className="flex items-center gap-3">
-          <div className="p-2 bg-bg border border-border">
+          <div className="border-2 border-border bg-bg p-2">
             <Icon size={16} className="text-text-secondary" />
           </div>
-          <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-text-secondary">
+          <span className="pixel-tag">
             {post.type}
           </span>
         </div>
       </div>
 
       {post.title && (
-        <h3 className="text-lg font-medium mb-3 tracking-tight">{post.title}</h3>
+        <h3 className="mb-3 text-3xl font-bold">{post.title}</h3>
       )}
 
       {post.type === 'quote' ? (
         <div className="relative py-4">
-          <p className="text-xl italic font-serif leading-relaxed text-text-primary">
+          <p className="font-serif text-3xl leading-relaxed text-text-primary">
             "{post.content}"
           </p>
           {post.author && (
-            <p className="mt-4 text-sm font-mono text-text-secondary">— {post.author}</p>
+            <p className="mt-4 text-sm font-mono uppercase tracking-wide text-text-secondary">— {post.author}</p>
           )}
         </div>
       ) : (
-        <p className="text-text-secondary leading-relaxed mb-4 whitespace-pre-wrap">
+        <p className="mb-4 whitespace-pre-wrap leading-relaxed text-text-secondary">
           {post.content}
         </p>
       )}
 
       {post.image && (
         <div 
-          className="mb-4 overflow-hidden cursor-pointer"
+          className="mb-4 cursor-pointer overflow-hidden border-2 border-border"
           onClick={() => onClickImage?.(post.image!)}
         >
           <img
             src={post.image}
             alt={post.title || 'Moment'}
-            className="w-full h-auto hover:grayscale-0 transition-all duration-500"
+            className="h-auto w-full transition-all duration-500 group-hover:scale-[1.02]"
             referrerPolicy="no-referrer"
           />
         </div>
@@ -88,7 +88,7 @@ const FeedPostCard: React.FC<FeedPostCardProps> = ({ post, onClickImage }) => {
 
 
       {post.type === 'video' && post.videoId && (
-        <div className="mt-4 aspect-video overflow-hidden border border-border">
+        <div className="mt-4 aspect-video overflow-hidden border-2 border-border">
           <iframe
             width="100%"
             height="100%"
@@ -107,18 +107,15 @@ const FeedPostCard: React.FC<FeedPostCardProps> = ({ post, onClickImage }) => {
           href={post.url} 
           target="_blank" 
           rel="noopener noreferrer"
-          className="mt-4 flex items-center justify-between p-4 bg-bg border border-border hover:border-accent transition-colors group/link"
+          className="group/link mt-4 flex items-center justify-between border-2 border-border bg-bg px-4 py-3 transition-colors hover:border-text-primary"
         >
           <div className="flex items-center gap-3">
-            <BookOpen size={18} className="text-text-secondary group-hover/link:text-accent transition-colors" />
-            <span className="text-xs font-mono uppercase tracking-widest">Read Full Article</span>
+            <BookOpen size={18} className="text-text-secondary group-hover/link:text-text-primary transition-colors" />
+            <span className="text-xs font-mono uppercase tracking-wider">Read full article</span>
           </div>
-          <ExternalLink size={16} className="text-text-secondary group-hover/link:text-accent transition-colors" />
+          <ExternalLink size={16} className="text-text-secondary group-hover/link:text-text-primary transition-colors" />
         </a>
       )}
-
-      <div className="absolute top-0 right-0 w-1 h-1 bg-accent opacity-0 group-hover:opacity-100 transition-opacity" />
-      <div className="absolute bottom-0 left-0 w-1 h-1 bg-accent opacity-0 group-hover:opacity-100 transition-opacity" />
     </motion.div>
   );
 };

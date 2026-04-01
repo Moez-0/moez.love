@@ -169,15 +169,15 @@ export default function Admin() {
         <motion.div 
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
-          className="w-full max-w-md bg-surface border border-border p-8"
+          className="pixel-panel w-full max-w-md bg-surface p-8"
         >
           <div className="flex flex-col items-center mb-8">
-            <div className="p-4 bg-bg border border-border mb-4">
+            <div className="mb-4 border-2 border-border bg-bg p-4">
               <Lock size={32} className="text-accent" />
             </div>
-            <h1 className="text-2xl font-bold tracking-tighter uppercase">Admin Access</h1>
-            <p className="text-text-secondary font-mono text-xs uppercase tracking-widest mt-2">
-              Encrypted Vault Entry
+            <h1 className="text-3xl font-bold uppercase">Admin Access</h1>
+            <p className="mt-2 text-text-secondary font-mono text-xs uppercase tracking-[0.2em]">
+              Pixel Control Room
             </p>
           </div>
           <form onSubmit={handleLogin} className="space-y-4">
@@ -187,13 +187,13 @@ export default function Admin() {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder="ENTER ACCESS KEY"
-                className="w-full bg-bg border border-border p-4 font-mono text-sm focus:border-accent outline-none transition-colors"
+                className="w-full border-2 border-border bg-bg p-4 font-mono text-sm uppercase tracking-wide outline-none transition-colors focus:border-text-primary"
                 autoFocus
               />
             </div>
             <button
               type="submit"
-              className="w-full bg-text-primary text-bg font-bold py-4 uppercase tracking-widest hover:bg-accent transition-colors"
+              className="pixel-button w-full py-4 font-mono text-xs uppercase tracking-[0.2em] transition-colors"
             >
               Authenticate
             </button>
@@ -205,11 +205,11 @@ export default function Admin() {
 
   return (
     <div className="max-w-6xl mx-auto py-12 px-4">
-      <header className="flex justify-between items-end mb-12 border-b border-border pb-8">
+      <header className="mb-12 flex items-end justify-between border-b-2 border-border pb-8">
         <div>
-          <h1 className="text-4xl font-bold tracking-tighter uppercase">Dashboard</h1>
-          <p className="text-text-secondary font-mono text-xs uppercase tracking-widest mt-2">
-            Archive Management System
+          <h1 className="text-5xl font-bold uppercase">Dashboard</h1>
+          <p className="mt-2 text-text-secondary font-mono text-xs uppercase tracking-[0.2em]">
+            Archive Management
           </p>
         </div>
         <div className="flex gap-4">
@@ -218,13 +218,13 @@ export default function Admin() {
               setEditingPost({ type: 'thought', content: '' });
               setIsAdding(true);
             }}
-            className="flex items-center gap-2 bg-text-primary text-bg px-6 py-3 font-bold uppercase tracking-widest text-xs hover:bg-accent transition-colors"
+            className="pixel-button flex items-center gap-2 px-6 py-3 font-mono text-xs uppercase tracking-[0.2em] transition-colors"
           >
             <Plus size={16} /> New Entry
           </button>
           <button
             onClick={handleLogout}
-            className="p-3 border border-border hover:border-accent transition-colors"
+            className="border-2 border-border bg-bg p-3 transition-colors hover:border-text-primary"
             title="Logout"
           >
             <LogOut size={20} />
@@ -241,15 +241,15 @@ export default function Admin() {
           posts.map((post) => (
             <div 
               key={post.id} 
-              className="bg-surface border border-border p-6 flex flex-col md:flex-row md:items-center justify-between gap-4 group hover:border-text-secondary transition-colors"
+              className="pixel-panel flex flex-col justify-between gap-4 bg-surface p-6 transition-colors group hover:border-text-secondary md:flex-row md:items-center"
             >
               <div className="flex items-center gap-4 min-w-0">
-                <div className="p-2 bg-bg border border-border text-[10px] font-mono uppercase text-text-secondary">
+                <div className="border-2 border-border bg-bg p-2 text-[10px] font-mono uppercase tracking-[0.15em] text-text-secondary">
                   {post.type}
                 </div>
                 <div className="min-w-0">
                   <h3 className="font-medium truncate">{post.title || post.content.substring(0, 50) + '...'}</h3>
-                  <p className="text-xs text-text-secondary font-mono uppercase tracking-widest">
+                  <p className="text-xs text-text-secondary font-mono uppercase tracking-[0.15em]">
                     {post.artist || post.author || 'Archive Entry'}
                   </p>
                 </div>
@@ -257,13 +257,13 @@ export default function Admin() {
               <div className="flex gap-2 shrink-0">
                 <button
                   onClick={() => setEditingPost(post)}
-                  className="p-2 border border-border hover:border-accent transition-colors"
+                  className="border-2 border-border bg-bg p-2 transition-colors hover:border-text-primary"
                 >
                   <Edit2 size={16} />
                 </button>
                 <button
                   onClick={() => handleDelete(post.id)}
-                  className="p-2 border border-border hover:text-red-500 hover:border-red-500 transition-colors"
+                  className="border-2 border-border bg-bg p-2 transition-colors hover:border-text-primary hover:text-text-primary"
                 >
                   <Trash2 size={16} />
                 </button>
@@ -281,10 +281,10 @@ export default function Admin() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: 20 }}
-              className="w-full max-w-2xl bg-surface border border-border p-8 max-h-[90vh] overflow-y-auto"
+              className="pixel-panel max-h-[90vh] w-full max-w-2xl overflow-y-auto bg-surface p-8"
             >
               <div className="flex justify-between items-center mb-8">
-                <h2 className="text-2xl font-bold tracking-tighter uppercase">
+                <h2 className="text-3xl font-bold uppercase">
                   {editingPost?.id ? 'Edit Entry' : 'New Entry'}
                 </h2>
                 <button onClick={() => { setEditingPost(null); setIsAdding(false); }}>
@@ -295,11 +295,11 @@ export default function Admin() {
               <form onSubmit={handleSave} className="space-y-6">
                 <div className="grid grid-cols-2 gap-4">
                   <div className="space-y-2">
-                    <label className="text-[10px] font-mono uppercase text-text-secondary">Type</label>
+                    <label className="text-[10px] font-mono uppercase tracking-[0.15em] text-text-secondary">Type</label>
                     <select
                       value={editingPost?.type}
                       onChange={(e) => setEditingPost({ ...editingPost, type: e.target.value as any })}
-                      className="w-full bg-bg border border-border p-3 font-mono text-xs outline-none focus:border-accent"
+                      className="w-full border-2 border-border bg-bg p-3 font-mono text-xs uppercase tracking-[0.1em] outline-none focus:border-text-primary"
                     >
                       <option value="thought">Thought</option>
                       <option value="quote">Quote</option>
@@ -311,24 +311,24 @@ export default function Admin() {
                     </select>
                   </div>
                   <div className="space-y-2">
-                    <label className="text-[10px] font-mono uppercase text-text-secondary">Title</label>
+                    <label className="text-[10px] font-mono uppercase tracking-[0.15em] text-text-secondary">Title</label>
                     <input
                       type="text"
                       value={editingPost?.title || ''}
                       onChange={(e) => setEditingPost({ ...editingPost, title: e.target.value })}
-                      className="w-full bg-bg border border-border p-3 font-mono text-xs outline-none focus:border-accent"
+                      className="w-full border-2 border-border bg-bg p-3 font-mono text-xs outline-none focus:border-text-primary"
                       placeholder="Optional title"
                     />
                   </div>
                 </div>
 
                 <div className="space-y-2">
-                  <label className="text-[10px] font-mono uppercase text-text-secondary">Content</label>
+                  <label className="text-[10px] font-mono uppercase tracking-[0.15em] text-text-secondary">Content</label>
                   <textarea
                     required
                     value={editingPost?.content || ''}
                     onChange={(e) => setEditingPost({ ...editingPost, content: e.target.value })}
-                    className="w-full bg-bg border border-border p-3 font-mono text-xs outline-none focus:border-accent min-h-[150px]"
+                    className="min-h-[150px] w-full border-2 border-border bg-bg p-3 font-mono text-xs outline-none focus:border-text-primary"
                     placeholder="Main content..."
                   />
                 </div>
@@ -469,7 +469,7 @@ export default function Admin() {
 
                 <button
                   type="submit"
-                  className="w-full bg-text-primary text-bg font-bold py-4 uppercase tracking-widest hover:bg-accent transition-colors flex items-center justify-center gap-2"
+                  className="pixel-button flex w-full items-center justify-center gap-2 py-4 font-mono text-xs uppercase tracking-[0.2em] transition-colors"
                 >
                   <Save size={18} /> Save Entry
                 </button>

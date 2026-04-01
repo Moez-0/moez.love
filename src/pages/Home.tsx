@@ -84,18 +84,15 @@ export default function Home() {
 
   return (
     <div className="max-w-2xl mx-auto py-12 px-4">
-    <header className="mb-12">
-  <h1 className="text-4xl font-bold tracking-tighter mb-2 uppercase">
-    Moez.love
-  </h1>
-  <p className="text-text-secondary font-mono text-xs uppercase tracking-widest mb-3">
-    Momo's Archive
-  </p>
-  <p className="text-sm text-gray-400 max-w-md">
-    A personal archive of my favorite articles, videos, music, thoughts, and moments
-    a space where everything I find meaningful is collected and remembered.
-  </p>
-</header>
+      <header className="mb-12 pixel-panel p-6 bg-surface">
+        <h1 className="mb-2 text-5xl font-bold leading-none">MOEZ.LOVE</h1>
+        <p className="mb-3 text-xs font-mono uppercase tracking-[0.2em] text-text-secondary">
+          Moez Souidi's Portal
+        </p>
+        <p className="max-w-md text-base text-text-secondary">
+          Archive of articles, videos, music, thoughts, and moments.
+        </p>
+      </header>
 
       <div className="space-y-8">
         {posts.map((post) => (

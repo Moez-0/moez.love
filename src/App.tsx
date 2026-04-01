@@ -90,19 +90,11 @@ function PageWrapper({ children }: { children: React.ReactNode }) {
 export default function App() {
   return (
     <Router>
-      <div className="min-h-screen bg-bg pixel-grid">
+      <div className="min-h-screen bg-bg soft-canvas">
         <Navbar />
-        <main className="pb-24 md:pb-0 md:pl-20">
+        <main className="pb-24 md:pb-0 md:pl-24">
           <AnimatedRoutes />
         </main>
-        
-        {/* Decorative Pixel Elements */}
-        <div className="fixed top-4 right-4 font-mono text-[10px] text-text-secondary/20 pointer-events-none hidden md:block">
-          SYS_ARCH_001 // MOEZ.LOVE
-        </div>
-        <div className="fixed bottom-4 right-4 font-mono text-[10px] text-text-secondary/20 pointer-events-none hidden md:block">
-          EST_2024 // VAULT_001
-        </div>
       </div>
     </Router>
   );

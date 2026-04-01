@@ -18,17 +18,17 @@ export default function Modal({ isOpen, onClose, children }: ModalProps) {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={onClose}
-            className="absolute inset-0 bg-bg/95"
+            className="absolute inset-0 bg-bg/80 backdrop-blur-sm"
           />
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.95 }}
-            className="relative max-w-5xl w-full bg-surface border border-border p-2 z-10"
+            className="pixel-panel relative z-10 w-full max-w-5xl bg-surface p-2"
           >
             <button
               onClick={onClose}
-              className="absolute -top-12 right-0 p-2 text-text-secondary hover:text-text-primary transition-colors"
+              className="absolute -top-12 right-0 border-2 border-border bg-surface p-2 text-text-secondary transition-colors hover:text-text-primary"
             >
               <X size={24} />
             </button>

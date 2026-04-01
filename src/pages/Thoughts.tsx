@@ -41,7 +41,7 @@ export default function Thoughts() {
 
   return (
     <div className="max-w-3xl mx-auto py-20 px-4">
-      <h2 className="text-3xl font-bold tracking-tighter mb-16 border-b border-border pb-4 uppercase">
+      <h2 className="pixel-panel mb-16 inline-block bg-surface px-6 py-4 text-4xl font-bold">
         Thoughts
       </h2>
       
@@ -57,7 +57,7 @@ export default function Thoughts() {
           ))
         )}
         {!loading && thoughts.length === 0 && (
-          <p className="text-text-secondary font-mono text-center uppercase tracking-widest">No thoughts archived yet.</p>
+          <p className="pixel-panel bg-surface p-6 text-center font-mono text-xs uppercase tracking-[0.18em] text-text-secondary">No thoughts archived yet.</p>
         )}
       </div>
     </div>

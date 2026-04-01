@@ -17,18 +17,18 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        className="group bg-surface border border-border overflow-hidden hover:border-accent transition-all duration-300"
+        className="pixel-panel group overflow-hidden bg-surface transition-all duration-300 hover:-translate-y-1"
       >
-        <div className="aspect-video overflow-hidden bg-bg relative">
+        <div className="relative aspect-video overflow-hidden bg-bg">
           {project.projectThumbnail ? (
             <img
               src={project.projectThumbnail}
               alt={project.title}
-              className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 group-hover:scale-105"
+              className="h-full w-full object-cover transition-all duration-500 group-hover:scale-105"
               referrerPolicy="no-referrer"
             />
           ) : project.projectUrl ? (
-            <div className="w-full h-full relative group-hover:grayscale-0 grayscale transition-all duration-500">
+            <div className="relative h-full w-full transition-all duration-500">
               <iframe
                 src={project.projectUrl}
                 className="w-[200%] h-[200%] border-none origin-top-left scale-50 pointer-events-none"
@@ -38,16 +38,16 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
               <div className="absolute inset-0 z-10" /> {/* Overlay to prevent interaction */}
             </div>
           ) : (
-            <div className="w-full h-full flex items-center justify-center font-mono text-[10px] text-text-secondary uppercase tracking-widest">
+            <div className="flex h-full w-full items-center justify-center text-sm font-mono uppercase tracking-wider text-text-secondary">
               No Preview Available
             </div>
           )}
           
-          <div className="absolute inset-0 bg-accent/10 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-4 z-20">
+          <div className="absolute inset-0 z-20 flex items-center justify-center gap-4 bg-accent/10 opacity-0 transition-opacity group-hover:opacity-100">
             {project.projectUrl && (
               <button
                 onClick={() => setIsPreviewOpen(true)}
-                className="p-3 bg-bg border border-border hover:border-accent hover:text-accent transition-all transform translate-y-4 group-hover:translate-y-0 duration-300"
+                className="translate-y-4 border-2 border-border bg-bg p-3 transition-all duration-300 group-hover:translate-y-0 hover:border-text-primary hover:text-text-primary"
                 title="Live Preview"
               >
                 <Eye size={18} />
@@ -58,7 +58,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
                 href={project.projectUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-3 bg-bg border border-border hover:border-accent hover:text-accent transition-all transform translate-y-4 group-hover:translate-y-0 duration-300 delay-75"
+                className="translate-y-4 border-2 border-border bg-bg p-3 transition-all delay-75 duration-300 group-hover:translate-y-0 hover:border-text-primary hover:text-text-primary"
                 title="Visit Site"
               >
                 <ExternalLink size={18} />
@@ -70,12 +70,12 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
         <div className="p-6 space-y-4">
           <div className="space-y-1">
             <div className="flex justify-between items-start">
-              <h3 className="text-xl font-bold tracking-tighter uppercase group-hover:text-accent transition-colors">
+              <h3 className="text-3xl font-bold transition-colors group-hover:text-text-primary">
                 {project.title}
               </h3>
             </div>
-            <p className="text-[10px] font-mono text-text-secondary uppercase tracking-widest">
-              Project // {project.id.substring(0, 8)}
+            <p className="text-xs font-mono uppercase tracking-wide text-text-secondary">
+              Project #{project.id.substring(0, 8)}
             </p>
           </div>
 
@@ -86,7 +86,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
           <div className="pt-4 border-t border-border/50 flex items-center justify-between">
             <button
               onClick={() => setIsPreviewOpen(true)}
-              className="text-[10px] font-mono uppercase tracking-[0.2em] text-accent hover:text-text-primary transition-colors"
+              className="pixel-button px-4 py-2 text-xs font-mono uppercase tracking-wider transition-colors"
             >
               Live Preview
             </button>
@@ -94,7 +94,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
               href={project.projectUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[10px] font-mono uppercase tracking-[0.2em] text-text-secondary hover:text-accent transition-colors"
+              className="text-xs font-mono uppercase tracking-wide text-text-secondary transition-colors hover:text-text-primary"
             >
               Visit Site <span className="text-xs">→</span>
             </a>
@@ -103,13 +103,13 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
       </motion.div>
 
       <Modal isOpen={isPreviewOpen} onClose={() => setIsPreviewOpen(false)}>
-        <div className="w-full h-[80vh] bg-bg border border-border overflow-hidden flex flex-col">
-          <div className="p-4 border-b border-border flex justify-between items-center bg-surface">
+        <div className="flex h-[80vh] w-full flex-col overflow-hidden border-2 border-border bg-bg">
+          <div className="flex items-center justify-between border-b border-border bg-surface p-4">
             <div className="flex items-center gap-3">
-              <div className="w-2 h-2 rounded-full bg-red-500/50" />
-              <div className="w-2 h-2 rounded-full bg-yellow-500/50" />
-              <div className="w-2 h-2 rounded-full bg-green-500/50" />
-              <span className="ml-4 text-[10px] font-mono text-text-secondary uppercase tracking-widest truncate max-w-[200px]">
+              <div className="h-2.5 w-2.5 bg-text-primary/45" />
+              <div className="h-2.5 w-2.5 bg-text-secondary/45" />
+              <div className="h-2.5 w-2.5 bg-border" />
+              <span className="ml-4 max-w-[200px] truncate text-xs font-mono uppercase tracking-wide text-text-secondary">
                 {project.projectUrl}
               </span>
             </div>
@@ -117,7 +117,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
               href={project.projectUrl} 
               target="_blank" 
               rel="noopener noreferrer"
-              className="p-2 hover:bg-bg transition-colors"
+              className="border border-border p-2 transition-colors hover:bg-bg"
             >
               <ExternalLink size={14} />
             </a>

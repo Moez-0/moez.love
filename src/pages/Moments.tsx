@@ -39,14 +39,14 @@ export default function Moments() {
 
   return (
     <div className="max-w-6xl mx-auto py-20 px-4">
-      <h2 className="text-3xl font-bold tracking-tighter mb-16 border-b border-border pb-4">
+      <h2 className="pixel-panel mb-16 inline-block bg-surface px-6 py-4 text-4xl font-bold">
         Moments
       </h2>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
         {loading ? (
           Array.from({ length: 6 }).map((_, i) => (
-            <div key={i} className="aspect-square bg-surface border border-border animate-pulse" />
+            <div key={i} className="pixel-panel aspect-square animate-pulse bg-surface" />
           ))
         ) : (
           moments.map((moment, index) => (
@@ -55,17 +55,17 @@ export default function Moments() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: index * 0.1 }}
-              className="aspect-square bg-surface border border-border overflow-hidden cursor-pointer group relative"
+              className="pixel-panel group relative aspect-square cursor-pointer overflow-hidden bg-surface"
               onClick={() => setSelectedImage(moment.image!)}
             >
               <img
                 src={moment.image}
                 alt={moment.content}
-                className="w-full h-full object-cover  group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700"
+                className="h-full w-full object-cover transition-all duration-700 group-hover:scale-105"
                 referrerPolicy="no-referrer"
               />
               <div className="absolute inset-0 bg-bg/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
-                <p className="text-[10px] font-mono uppercase tracking-widest">
+                <p className="text-[10px] font-mono uppercase tracking-[0.2em]">
                   {moment.content}
                 </p>
               </div>
@@ -74,7 +74,7 @@ export default function Moments() {
         )}
         {!loading && moments.length === 0 && (
           <div className="col-span-full">
-            <p className="text-text-secondary font-mono text-center">No moments archived yet.</p>
+            <p className="pixel-panel bg-surface p-6 text-center font-mono text-xs uppercase tracking-[0.18em] text-text-secondary">No moments archived yet.</p>
           </div>
         )}
       </div>
