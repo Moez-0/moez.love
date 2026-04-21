@@ -38,7 +38,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
               <div className="absolute inset-0 z-10" /> {/* Overlay to prevent interaction */}
             </div>
           ) : (
-            <div className="flex h-full w-full items-center justify-center text-sm font-mono uppercase tracking-wider text-text-secondary">
+            <div className="flex h-full w-full items-center justify-center text-sm tracking-[0.16em] text-text-secondary">
               No Preview Available
             </div>
           )}
@@ -47,7 +47,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
             {project.projectUrl && (
               <button
                 onClick={() => setIsPreviewOpen(true)}
-                className="translate-y-4 border-2 border-border bg-bg p-3 transition-all duration-300 group-hover:translate-y-0 hover:border-text-primary hover:text-text-primary"
+                className="translate-y-4 border border-border bg-bg/90 p-3 transition-all duration-300 group-hover:translate-y-0 hover:border-text-primary hover:text-text-primary"
                 title="Live Preview"
               >
                 <Eye size={18} />
@@ -58,7 +58,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
                 href={project.projectUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="translate-y-4 border-2 border-border bg-bg p-3 transition-all delay-75 duration-300 group-hover:translate-y-0 hover:border-text-primary hover:text-text-primary"
+                className="translate-y-4 border border-border bg-bg/90 p-3 transition-all delay-75 duration-300 group-hover:translate-y-0 hover:border-text-primary hover:text-text-primary"
                 title="Visit Site"
               >
                 <ExternalLink size={18} />
@@ -70,23 +70,23 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
         <div className="p-6 space-y-4">
           <div className="space-y-1">
             <div className="flex justify-between items-start">
-              <h3 className="text-3xl font-bold transition-colors group-hover:text-text-primary">
+              <h3 className="text-3xl transition-colors group-hover:text-text-primary md:text-4xl">
                 {project.title}
               </h3>
             </div>
-            <p className="text-xs font-mono uppercase tracking-wide text-text-secondary">
+            <p className="text-xs tracking-[0.16em] text-text-secondary">
               Project #{project.id.substring(0, 8)}
             </p>
           </div>
 
-          <p className="text-sm text-text-secondary leading-relaxed line-clamp-3">
+          <p className="line-clamp-3 text-[1.02rem] leading-8 text-text-secondary">
             {project.content}
           </p>
 
-          <div className="pt-4 border-t border-border/50 flex items-center justify-between">
+          <div className="flex items-center justify-between border-t border-border/50 pt-4">
             <button
               onClick={() => setIsPreviewOpen(true)}
-              className="pixel-button px-4 py-2 text-xs font-mono uppercase tracking-wider transition-colors"
+              className="pixel-button px-4 py-2 text-xs tracking-[0.12em] transition-colors"
             >
               Live Preview
             </button>
@@ -94,7 +94,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
               href={project.projectUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-xs font-mono uppercase tracking-wide text-text-secondary transition-colors hover:text-text-primary"
+              className="text-xs tracking-[0.14em] text-text-secondary transition-colors hover:text-text-primary"
             >
               Visit Site <span className="text-xs">→</span>
             </a>
@@ -103,13 +103,13 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
       </motion.div>
 
       <Modal isOpen={isPreviewOpen} onClose={() => setIsPreviewOpen(false)}>
-        <div className="flex h-[80vh] w-full flex-col overflow-hidden border-2 border-border bg-bg">
+        <div className="flex h-[80vh] w-full flex-col overflow-hidden border border-border bg-bg">
           <div className="flex items-center justify-between border-b border-border bg-surface p-4">
             <div className="flex items-center gap-3">
               <div className="h-2.5 w-2.5 bg-text-primary/45" />
               <div className="h-2.5 w-2.5 bg-text-secondary/45" />
               <div className="h-2.5 w-2.5 bg-border" />
-              <span className="ml-4 max-w-[200px] truncate text-xs font-mono uppercase tracking-wide text-text-secondary">
+              <span className="ml-4 max-w-[200px] truncate text-xs tracking-[0.12em] text-text-secondary">
                 {project.projectUrl}
               </span>
             </div>

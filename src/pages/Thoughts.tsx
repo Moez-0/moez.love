@@ -40,10 +40,11 @@ export default function Thoughts() {
   }, []);
 
   return (
-    <div className="max-w-3xl mx-auto py-20 px-4">
-      <h2 className="pixel-panel mb-16 inline-block bg-surface px-6 py-4 text-4xl font-bold">
-        Thoughts
-      </h2>
+    <div className="mx-auto max-w-4xl px-4 py-16 md:py-20">
+      <header className="mb-12 border-b border-border/80 pb-7">
+        <p className="mb-2 text-xs tracking-[0.2em] text-text-secondary">COLUMN</p>
+        <h2 className="text-4xl md:text-5xl">Thoughts</h2>
+      </header>
       
       <div className="space-y-12">
         {loading ? (
@@ -57,7 +58,7 @@ export default function Thoughts() {
           ))
         )}
         {!loading && thoughts.length === 0 && (
-          <p className="pixel-panel bg-surface p-6 text-center font-mono text-xs uppercase tracking-[0.18em] text-text-secondary">No thoughts archived yet.</p>
+          <p className="pixel-panel bg-surface p-6 text-center text-xs tracking-[0.16em] text-text-secondary">No thoughts archived yet.</p>
         )}
       </div>
     </div>

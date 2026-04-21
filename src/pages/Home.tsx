@@ -83,18 +83,16 @@ export default function Home() {
   }, [loading, hasMore, page]);
 
   return (
-    <div className="max-w-2xl mx-auto py-12 px-4">
-      <header className="mb-12 pixel-panel p-6 bg-surface">
-       
-        <p className="mb-3 text-xs font-mono uppercase tracking-[0.2em] text-text-secondary">
-          Moez Souidi's Portal
-        </p>
-        <p className="max-w-md text-base text-text-secondary">
-          Archive of articles, videos, music, thoughts, and moments.
+    <div className="mx-auto max-w-4xl px-4 py-12 md:py-16">
+      <header className="mb-10 border-b border-border/80 pb-8 md:mb-12">
+        <p className="mb-3 text-xs tracking-[0.2em] text-text-secondary">MOEZ SOUIDI'S PORTAL</p>
+        <h1 className="max-w-3xl text-4xl leading-[1.08] md:text-6xl">Stuff i get excited about.</h1>
+        <p className="mt-5 max-w-2xl text-base leading-8 text-text-secondary md:text-lg">
+          Thoughts,projects,music,videos,moments.
         </p>
       </header>
 
-      <div className="space-y-8">
+      <div className="space-y-10">
         {posts.map((post) => (
           <FeedPostCard 
             key={post.id} 

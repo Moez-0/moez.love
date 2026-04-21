@@ -45,34 +45,33 @@ export default function Projects() {
   };
 
   return (
-    <div className="max-w-6xl mx-auto py-20 px-4 min-h-screen">
-      <header className="mb-20 space-y-4">
+    <div className="mx-auto min-h-screen max-w-6xl px-4 py-16 md:py-20">
+      <header className="mb-14 border-b border-border/80 pb-8">
         <motion.div
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
-          className="pixel-panel inline-flex items-center gap-3 bg-surface px-4 py-2 text-text-primary"
+          className="mb-4 inline-flex items-center gap-2 border border-border/80 bg-surface/80 px-4 py-2 text-text-primary"
         >
-          <Folder size={20} />
-          <span className="font-mono text-xs uppercase tracking-[0.3em]">Project World</span>
+          <Folder size={16} />
+          <span className="text-xs tracking-[0.2em]">PROJECT GRID</span>
         </motion.div>
         
         <motion.h1 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1 }}
-          className="text-6xl md:text-8xl font-bold uppercase leading-none"
+          className="text-5xl leading-[1.02] md:text-7xl"
         >
-          Side <br />
-          <span className="text-text-primary">Projects</span>
+          Projects
         </motion.h1>
         
         <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.2 }}
-          className="pixel-panel max-w-xl bg-surface p-4 text-sm font-mono uppercase tracking-[0.15em] text-text-secondary leading-relaxed"
+          className="mt-4 max-w-2xl text-base leading-8 text-text-secondary md:text-lg"
         >
-          A curated list of websites, tools, and experiments.
+          Builds, tools, and tests.
         </motion.p>
       </header>
 
@@ -89,15 +88,15 @@ export default function Projects() {
           ))}
         </div>
       ) : (
-        <div className="pixel-panel bg-surface text-center py-40">
-          <p className="font-mono text-xs uppercase tracking-[0.2em] text-text-secondary">
+        <div className="pixel-panel bg-surface py-40 text-center">
+          <p className="text-xs tracking-[0.16em] text-text-secondary">
             No projects found in the archive.
           </p>
         </div>
       )}
 
-      <footer className="mt-40 flex items-center justify-between border-t-2 border-border pt-8 font-mono text-[10px] uppercase tracking-[0.2em] text-text-secondary">
-        <span>Zone 004</span>
+      <footer className="mt-24 flex items-center justify-between border-t border-border/80 pt-6 text-[10px] tracking-[0.16em] text-text-secondary">
+        <span>NEON BLOCK</span>
         <span>Total Projects: {projects.length}</span>
       </footer>
     </div>
